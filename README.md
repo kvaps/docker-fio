@@ -84,17 +84,17 @@ EOT
 **Run single test**
 
 ```bash
-docker run --net=host -ti --rm -v "$PWD:/data" kvaps/fio --client=10.112.0.104 /data/test.ini
+docker run --net=host -ti --rm -v "$PWD:/config" kvaps/fio --client=10.112.0.104 /config/test.ini
 ```
 
 **Run multiple test**
 
 ```bash
 # Run massfio container
-docker run --net=host -ti --rm -v "$PWD:/data" -v "$PWD/results:/results" kvaps/massfio
+docker run --net=host -ti --rm -v "$PWD:/config" -v "$PWD/results:/results" kvaps/massfio
 
 # Run test
-timeout 10m /massfio.sh /data/test.ini 10.112.0.104 10.112.0.105 10.112.0.106
+timeout 10m /massfio.sh /config/test.ini 10.112.0.104 10.112.0.105 10.112.0.106
 
 # Parse results
 /massfio_parse.sh /results
