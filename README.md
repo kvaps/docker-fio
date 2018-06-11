@@ -25,7 +25,7 @@ spec:
     matchLabels:
       app: fio
   serviceName: "fio"
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
@@ -88,6 +88,14 @@ docker run --net=host -ti --rm -v "$PWD:/config" kvaps/fio --client=10.112.0.104
 ```
 
 **Run multiple test**
+
+First you need to know all IPs for your fio pods:
+
+```
+kubectl get pod -l app=fio -o custom-columns=IP:.status.podIP | tail -n+2 | xargs
+```
+
+Then you can run massfio script with them:
 
 ```bash
 # Run massfio container
