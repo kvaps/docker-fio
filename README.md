@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: fio
-        image: kvaps/fio:latest
+        image: ghcr.io/kvaps/fio:3.38
         args: [ "--server" ]
         ports:
         - name: fio

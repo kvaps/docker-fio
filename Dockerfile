@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN apt-get -y update \
  && apt-get -y install libaio-dev curl gcc make zlib1g-dev \
- && curl -L https://github.com/axboe/fio/archive/fio-3.5.tar.gz | tar xzf - \
+ && curl -L https://github.com/axboe/fio/archive/fio-3.38.tar.gz | tar xzf - \
  && cd fio-* \
  && ./configure \
  && make \
